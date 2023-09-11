@@ -24,7 +24,7 @@ const TweetBody = (props: TweetBodyProps) => {
           width={0}
           height={0}
           sizes="100%"
-          className="max-h-[500px] w-full object-contain"
+          className="max-h-[500px] w-full object-cover"
         />
       )}
       <div className="my-4 flex items-center gap-1 text-sm font-normal text-gray-500">

@@ -4,19 +4,20 @@ import TweetHeader from "./TweetHeader";
 import TweetFooter from "./TweetFooter";
 
 const tweet: TweetProps = {
-  // avatar: "https://picsum.photos/200",
-  // name: "John Doe",
-  // username: "@johndoe",
-  // verified: false,
-  // body: "This is a fake tweet!",
-  // image: "https://picsum.photos/500",
-  // publishedTime: "12:00 PM",
-  // publishedDate: "Jun 1, 2021",
-  // viewsCount: 12451,
-  // repostsCount: 161060000,
-  // quotesCount: 161060000,
-  // likesCount: 161060000,
-  // bookmarksCount: 161060000,
+  avatar: "https://picsum.photos/200",
+  name: "John Doe",
+  username: "@johndoe",
+  verified: false,
+  body: "This is a fake tweet!",
+  image:
+    "https://images.pexels.com/photos/18021099/pexels-photo-18021099/free-photo-of-motorboats-on-sea-shore-in-town.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  publishedTime: "12:00 PM",
+  publishedDate: "Jun 1, 2021",
+  viewsCount: 12451,
+  repostsCount: 161060000,
+  quotesCount: 161060000,
+  likesCount: 161060000,
+  bookmarksCount: 161060000,
 };
 
 const Tweet = () => {
