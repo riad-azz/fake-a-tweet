@@ -19,7 +19,7 @@ const UserInfo = (props: UserInfoProps) => {
             alt="avatar"
             width={48}
             height={48}
-            className="rounded-full"
+            className="h-12 w-12 rounded-full"
           />
         )}
       </div>
