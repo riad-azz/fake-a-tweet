@@ -16,7 +16,7 @@ const DownloadButton = (props: DownloadButtonProps) => {
   return (
     <button
       className={cn(
-        "flex items-center justify-center rounded-lg px-4 py-2 text-center text-white",
+        "flex w-[180px] items-center justify-center rounded-lg px-4 py-2 text-center text-white",
         "bg-[#1d9bf0] hover:bg-[#148ad8]",
         {
           "hover:cursor-pointer": !isLoading,

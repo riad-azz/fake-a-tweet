@@ -124,15 +124,19 @@ const TweetForm = () => {
           type="file"
           accept="image/*"
           placeholder="Tweet Image"
-          label="Add an image"
-          containerClass="mb-2"
-          labelClass={cn(
-            "bg-[#1d9bf0] text-white px-4 py-2 rounded-lg text-center",
-            "hover:bg-[#148ad8] hover:cursor-pointer"
-          )}
+          label="Tweet Image"
           InputClass="hidden"
           onChange={(e) => handleImageChange("image", e)}
         >
+          <label
+            htmlFor="tweet-image"
+            className={cn(
+              "rounded-lg bg-[#1d9bf0] px-4 py-2 text-center text-white",
+              "hover:cursor-pointer hover:bg-[#148ad8]"
+            )}
+          >
+            Upload Image
+          </label>
           {tweet.image && (
             <button
               className="w-fit text-left text-sm text-red-600 hover:underline"
@@ -237,18 +241,6 @@ const TweetForm = () => {
           }
           min={0}
         />
-      </div>
-      <div className="mt-4 w-full">
-        <button
-          type="button"
-          className={cn(
-            "w-full rounded-lg bg-[#1d9bf0] px-4 py-2 text-center text-white",
-            "hover:cursor-pointer hover:bg-[#148ad8]"
-          )}
-          onClick={resetTweet}
-        >
-          Reset All
-        </button>
       </div>
       <div />
     </div>

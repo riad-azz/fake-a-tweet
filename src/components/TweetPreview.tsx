@@ -14,7 +14,7 @@ import { twitterThemeOptions, twitterThemes } from "@/utils/constants";
 import DownloadButton from "./ui/DownloadButton";
 
 const TweetPreview = () => {
-  const { theme, updateTheme } = useTweet();
+  const { theme, updateTheme, resetTweet } = useTweet();
   const currentTheme = twitterThemes[theme];
   const { componentRef, isCapturing, captureScreenshot } =
     useScreenshot(currentTheme);
@@ -65,12 +65,24 @@ const TweetPreview = () => {
           {/* Tweet Footer */}
           <TweetFooter />
         </div>
-        <DownloadButton
-          label="Download Tweet"
-          loadingLabel="Processing Your Tweet"
-          isLoading={isCapturing}
-          onClick={captureScreenshot}
-        />
+        <div className="flex w-full justify-end gap-4 px-2 lg:px-0">
+          <button
+            type="button"
+            className={cn(
+              "w-fit rounded-lg bg-red-500 px-4 py-2 text-center text-white",
+              "hover:cursor-pointer hover:bg-red-600"
+            )}
+            onClick={resetTweet}
+          >
+            Reset
+          </button>
+          <DownloadButton
+            label="Download"
+            loadingLabel="Processing"
+            isLoading={isCapturing}
+            onClick={captureScreenshot}
+          />
+        </div>
       </div>
     </div>
   );
