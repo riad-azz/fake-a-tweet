@@ -10,11 +10,14 @@ import TweetFooter from "@/components/tweet/TweetFooter";
 
 import { TweetTheme } from "@/types";
 import { cn } from "@/utils";
-import { twitterThemeOptions } from "@/utils/constants";
+import { twitterThemeOptions, twitterThemes } from "@/utils/constants";
+import DownloadButton from "./ui/DownloadButton";
 
 const TweetPreview = () => {
   const { theme, updateTheme } = useTweet();
-  const { componentRef, captureScreenshot } = useScreenshot();
+  const currentTheme = twitterThemes[theme];
+  const { componentRef, isCapturing, captureScreenshot } =
+    useScreenshot(currentTheme);
 
   const handleThemeChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newTheme = event.target.value as TweetTheme;
@@ -25,7 +28,7 @@ const TweetPreview = () => {
     <div className="order-1 mx-auto w-full lg:order-2">
       <div
         className={cn(
-          "mx-auto flex w-full max-w-2xl flex-col items-center gap-4 rounded border border-gray-100 bg-white py-4 shadow-md",
+          "mx-auto flex w-full max-w-2xl flex-col items-center gap-4 rounded border bg-white py-4 shadow-md",
           "lg:px-4"
         )}
       >
@@ -41,11 +44,19 @@ const TweetPreview = () => {
         </div>
         <div
           ref={componentRef}
-          className={cn("w-full border border-[#c4cfd6] p-4", {
-            "bg-white text-black": theme === "light",
-            "bg-black text-white ": theme === "dark",
-            "bg-[#15202b] text-white": theme === "dim",
-          })}
+          className={cn(
+            "w-full border-[1px] p-4",
+            {
+              "bg-white text-black": theme === "light",
+              "bg-black text-white ": theme === "dark",
+              "bg-[#15202b] text-white": theme === "dim",
+            },
+            {
+              "border-b-[#eff3f4] border-t-[#eff3f4]": theme === "light",
+              "border-b-[#2f3336] border-t-[#2f3336]":
+                theme === "dim" || theme === "dark",
+            }
+          )}
         >
           {/* Tweet header */}
           <TweetHeader />
@@ -54,12 +65,12 @@ const TweetPreview = () => {
           {/* Tweet Footer */}
           <TweetFooter />
         </div>
-        <button
+        <DownloadButton
+          label="Download Tweet"
+          loadingLabel="Processing Your Tweet"
+          isLoading={isCapturing}
           onClick={captureScreenshot}
-          className="rounded-lg bg-[#1d9bf0] px-4 py-2 text-center text-white hover:cursor-pointer hover:bg-[#148ad8]"
-        >
-          Download Fake Tweet
-        </button>
+        />
       </div>
     </div>
   );

@@ -18,12 +18,12 @@ const TweetHeader = () => {
   return (
     <div className="mb-4 flex justify-between">
       <div className="flex items-center gap-3">
-        <div className="h-10 w-10 rounded-full bg-slate-500">
+        <div className="h-10 w-10 rounded-full">
           <Image
             src={avatar ? avatar : tweetHeaderDefaults.avatar}
             alt="avatar"
-            width={48}
-            height={48}
+            width={400}
+            height={400}
             className="h-10 w-10 rounded-full object-cover"
           />
         </div>

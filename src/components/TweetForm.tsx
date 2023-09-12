@@ -41,15 +41,20 @@ const TweetForm = () => {
           id="avatar"
           type="file"
           accept="image/*"
-          label="Upload Profile Picture"
+          label="Profile Picture"
           placeholder="Profile picture"
-          labelClass={cn(
-            "bg-[#1d9bf0] text-white px-4 py-2 rounded-lg text-center",
-            "hover:bg-[#148ad8] hover:cursor-pointer"
-          )}
           InputClass="hidden"
           onChange={(e) => handleImageChange("avatar", e)}
         >
+          <label
+            htmlFor="avatar"
+            className={cn(
+              "rounded-lg bg-[#1d9bf0] px-4 py-2 text-center text-white",
+              "hover:cursor-pointer hover:bg-[#148ad8]"
+            )}
+          >
+            Upload Profile Picture
+          </label>
           {tweet.avatar && (
             <button
               className="w-fit text-left text-sm text-red-600 hover:underline"

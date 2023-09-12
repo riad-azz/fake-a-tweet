@@ -1,7 +1,8 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import * as htmlToImage from "html-to-image";
 
-export const useScreenshot = () => {
+export const useScreenshot = (backgroundColor?: string) => {
+  const [isCapturing, setIsCapturing] = useState(false);
   const componentRef = useRef<HTMLDivElement | null>(null);
 
   const downloadScreenshot = (screenshotDataUrl: string) => {
@@ -9,16 +10,19 @@ export const useScreenshot = () => {
     link.href = screenshotDataUrl;
     link.download = "fake-a-tweet.png";
     link.click();
+    setIsCapturing(false);
   };
 
   const captureScreenshot = () => {
     if (componentRef.current) {
+      setIsCapturing(true);
       htmlToImage
         .toPng(componentRef.current, {
-          backgroundColor: "#ffffff",
+          backgroundColor,
           quality: 1,
           cacheBust: true,
           includeQueryParams: true,
+          pixelRatio: 2,
         })
         .then((dataUrl) => {
           downloadScreenshot(dataUrl);
@@ -26,5 +30,5 @@ export const useScreenshot = () => {
     }
   };
 
-  return { componentRef, captureScreenshot };
+  return { isCapturing, componentRef, captureScreenshot };
 };
