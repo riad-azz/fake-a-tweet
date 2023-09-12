@@ -44,19 +44,11 @@ const TweetPreview = () => {
         </div>
         <div
           ref={componentRef}
-          className={cn(
-            "w-full border-[1px] p-4",
-            {
-              "bg-white text-black": theme === "light",
-              "bg-black text-white ": theme === "dark",
-              "bg-[#15202b] text-white": theme === "dim",
-            },
-            {
-              "border-b-[#eff3f4] border-t-[#eff3f4]": theme === "light",
-              "border-b-[#2f3336] border-t-[#2f3336]":
-                theme === "dim" || theme === "dark",
-            }
-          )}
+          className={cn("w-full border-[1px] p-4", {
+            "border-[#eff3f4] bg-white text-black": theme === "light",
+            "border-[#2f3336] bg-black text-white": theme === "dark",
+            "border-[#2f3336] bg-[#15202b] text-white": theme === "dim",
+          })}
         >
           {/* Tweet header */}
           <TweetHeader />
