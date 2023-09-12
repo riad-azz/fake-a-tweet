@@ -1,4 +1,6 @@
-export type TweetState = {
+export type TweetTheme = "light" | "dark" | "dim";
+
+export type Tweet = {
   avatar?: string;
   name?: string;
   username?: string;
@@ -8,12 +10,18 @@ export type TweetState = {
   publishTime?: string; // hh:mm AM/PM
   publishDate?: string; // mmm dd, yyyy
   viewsCount?: number;
+  repliesCount?: number;
   repostsCount?: number;
-  quotesCount?: number;
   likesCount?: number;
   bookmarksCount?: number;
 };
 
+export type TweetState = {
+  tweet: Tweet;
+  theme: TweetTheme;
+};
+
 export type TweetAction =
   | { type: "UPDATE_TWEET"; payload: { [field: string]: any } }
+  | { type: "UPDATE_TWEET_THEME"; payload: TweetTheme }
   | { type: "RESET_TWEET"; payload: null };

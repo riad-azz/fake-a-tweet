@@ -5,7 +5,8 @@ export const cn = (...inputs: ClassValue[]) => {
   return twMerge(clsx(inputs));
 };
 
-export const nFormatter = (num: number, digits: number = 1) => {
+export const nFormatter = (num?: number, digits: number = 1) => {
+  if (!num) return "";
   const lookup = [
     { value: 1, symbol: "" },
     { value: 1e3, symbol: "k" },

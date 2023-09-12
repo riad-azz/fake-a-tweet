@@ -1,5 +1,5 @@
 import { useTweet } from "@/hooks/useTweet";
-import TweetStat from "@/components/parts/TweetStat";
+import TweetStat from "@/components/tweet/parts/TweetStat";
 import {
   CommentIcon,
   RepostIcon,
@@ -7,49 +7,40 @@ import {
   BookmarkIcon,
   ShareIcon,
 } from "@/components/Icons";
+import { cn } from "@/utils";
 
-export type TweetFooterProps = {
+export interface TweetFooterProps {
+  repliesCount?: number;
   repostsCount?: number;
-  quotesCount?: number;
   likesCount?: number;
   bookmarksCount?: number;
-};
+}
 
 const TweetFooter = () => {
-  const { state } = useTweet();
+  const { tweet, theme } = useTweet();
   const {
+    repliesCount,
     repostsCount,
-    quotesCount,
     likesCount,
     bookmarksCount,
-  }: TweetFooterProps = state;
-  const showStats =
-    !!repostsCount || !!quotesCount || !!likesCount || !!bookmarksCount;
+  }: TweetFooterProps = tweet;
+
   return (
     <div>
-      {showStats && (
-        <div className="flex flex-wrap items-center gap-4 border-t py-4">
-          {!!repostsCount && (
-            <TweetStat statName="Reposts" statCount={repostsCount} />
-          )}
-          {!!quotesCount && (
-            <TweetStat statName="Quotes" statCount={quotesCount} />
-          )}
-          {!!likesCount && (
-            <TweetStat statName="Likes" statCount={likesCount} />
-          )}
-          {!!bookmarksCount && (
-            <div className="w-full border-t pt-4 sm:w-fit sm:border-0 sm:pt-0">
-              <TweetStat statName="Bookmarks" statCount={bookmarksCount} />
-            </div>
-          )}
-        </div>
-      )}
-      <div className="flex items-center justify-between border-t pt-4">
-        <CommentIcon />
-        <RepostIcon />
-        <LikeIcon />
-        <BookmarkIcon />
+      <div
+        className={cn(
+          "flex h-[48px] items-center justify-between border-b border-t px-1",
+          {
+            "border-b-[#eff3f4] border-t-[#eff3f4]": theme === "light",
+            "border-b-[#2f3336] border-t-[#2f3336]":
+              theme === "dim" || theme === "dark",
+          }
+        )}
+      >
+        <TweetStat icon={<CommentIcon />} count={repliesCount} />
+        <TweetStat icon={<RepostIcon />} count={repostsCount} />
+        <TweetStat icon={<LikeIcon />} count={likesCount} />
+        <TweetStat icon={<BookmarkIcon />} count={bookmarksCount} />
         <ShareIcon />
       </div>
     </div>

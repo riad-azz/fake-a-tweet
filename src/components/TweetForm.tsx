@@ -5,9 +5,11 @@ import InputField from "@/components/ui/InputField";
 import TextareaField from "@/components/ui/TextareaField";
 
 import { cn } from "@/utils";
+import { tweetHeaderDefaults, tweetBodyDefaults } from "@/utils/constants";
 
 const TweetForm = () => {
-  const { state, updateTweet, resetTweet } = useTweet();
+  const { tweet, updateTweet, resetTweet } = useTweet();
+
   const handleImageChange = (
     field: string,
     e: ChangeEvent<HTMLInputElement>
@@ -48,7 +50,7 @@ const TweetForm = () => {
           InputClass="hidden"
           onChange={(e) => handleImageChange("avatar", e)}
         >
-          {state.avatar && (
+          {tweet.avatar && (
             <button
               className="w-fit text-left text-sm text-red-600 hover:underline"
               onClick={() => updateTweet({ avatar: "" })}
@@ -60,9 +62,9 @@ const TweetForm = () => {
         <InputField
           type="text"
           label="Name"
-          placeholder="Name"
-          tooltip={`${state.name ? state.name.length : 0}/50 characters`}
-          value={state.name}
+          placeholder={tweetHeaderDefaults.name}
+          tooltip={`${tweet.name ? tweet.name.length : 0}/50 characters`}
+          value={tweet.name}
           onChange={(e) =>
             updateTweet({
               name: e.target.value,
@@ -72,11 +74,11 @@ const TweetForm = () => {
         <InputField
           type="text"
           label="Username"
-          placeholder="@Username"
+          placeholder={"@" + tweetHeaderDefaults.username}
           tooltip={`${
-            state.username ? state.username.length : 0
+            tweet.username ? tweet.username.length : 0
           }/15 characters`}
-          value={state.username}
+          value={tweet.username}
           onChange={(e) =>
             updateTweet({
               username: e.target.value,
@@ -92,8 +94,8 @@ const TweetForm = () => {
             type="checkbox"
             containerClass="w-fit"
             InputClass="border-gray-600"
-            checked={state.verified}
-            onChange={() => updateTweet({ verified: !state.verified })}
+            checked={tweet.verified}
+            onChange={() => updateTweet({ verified: !tweet.verified })}
           />
           <span className="w-full">Show verified badge</span>
         </label>
@@ -101,10 +103,11 @@ const TweetForm = () => {
       {/* Body Section */}
       <div className="flex flex-col gap-4">
         <TextareaField
+          dir="auto"
           label="What's happening?"
-          placeholder="Your fake tweet here!"
-          tooltip={`${state.body ? state.body.length : 0}/280 characters`}
-          value={state.body}
+          placeholder={tweetBodyDefaults.body}
+          tooltip={`${tweet.body ? tweet.body.length : 0}/280 characters`}
+          value={tweet.body}
           onChange={(e) =>
             updateTweet({
               body: e.target.value,
@@ -125,7 +128,7 @@ const TweetForm = () => {
           InputClass="hidden"
           onChange={(e) => handleImageChange("image", e)}
         >
-          {state.image && (
+          {tweet.image && (
             <button
               className="w-fit text-left text-sm text-red-600 hover:underline"
               onClick={() => updateTweet({ image: "" })}
@@ -137,9 +140,9 @@ const TweetForm = () => {
         <InputField
           type="text"
           label="Publish Time"
-          placeholder="12:00 PM"
+          placeholder={tweetBodyDefaults.publishTime}
           tooltip="hh:mm AM/PM format"
-          value={state.publishTime}
+          value={tweet.publishTime}
           onChange={(e) =>
             updateTweet({
               publishTime: e.target.value,
@@ -149,42 +152,54 @@ const TweetForm = () => {
         <InputField
           type="text"
           label="Publish Date"
-          placeholder="Jun 1, 2021"
+          placeholder={tweetBodyDefaults.publishDate}
           tooltip="mmm dd, yyyy format"
-          value={state.publishDate}
+          value={tweet.publishDate}
           onChange={(e) =>
             updateTweet({
               publishDate: e.target.value,
             })
           }
         />
+        <InputField
+          type="number"
+          label="Views Count"
+          placeholder="0"
+          value={tweet.viewsCount}
+          onChange={(e) =>
+            updateTweet({
+              viewsCount: parseInt(e.target.value),
+            })
+          }
+          min={0}
+        />
       </div>
       {/* Stats Section */}
       <div className="mt-4 flex items-center justify-between gap-4">
         <InputField
           type="number"
-          label="Reposts"
+          label="Replies"
           placeholder="0"
           containerClass="w-1/5"
           labelClass="text-sm"
-          value={state.repostsCount}
+          value={tweet.repliesCount}
           onChange={(e) =>
             updateTweet({
-              repostsCount: parseInt(e.target.value),
+              repliesCount: parseInt(e.target.value),
             })
           }
           min={0}
         />
         <InputField
           type="number"
-          label="Quotes"
+          label="Reposts"
           placeholder="0"
           containerClass="w-1/5"
           labelClass="text-sm"
-          value={state.quotesCount}
+          value={tweet.repostsCount}
           onChange={(e) =>
             updateTweet({
-              quotesCount: parseInt(e.target.value),
+              repostsCount: parseInt(e.target.value),
             })
           }
           min={0}
@@ -195,7 +210,7 @@ const TweetForm = () => {
           placeholder="0"
           containerClass="w-1/5"
           labelClass="text-sm"
-          value={state.likesCount}
+          value={tweet.likesCount}
           onChange={(e) =>
             updateTweet({
               likesCount: parseInt(e.target.value),
@@ -209,7 +224,7 @@ const TweetForm = () => {
           placeholder="0"
           containerClass="w-1/5"
           labelClass="text-sm"
-          value={state.bookmarksCount}
+          value={tweet.bookmarksCount}
           onChange={(e) =>
             updateTweet({
               bookmarksCount: parseInt(e.target.value),

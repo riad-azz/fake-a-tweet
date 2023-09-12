@@ -1,16 +1,16 @@
 "use client";
 
-import { cn } from "@/utils";
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TweetForm from "@/components/TweetForm";
 import TweetPreview from "@/components/TweetPreview";
-import TweetProvider from "@/components/TweetProvider";
+import AppProvider from "@/components/Providers";
+
+import { cn } from "@/utils";
 
 export default function Home() {
   return (
-    <TweetProvider>
+    <AppProvider>
       <Header />
       <main className="flex flex-col">
         <div
@@ -24,6 +24,6 @@ export default function Home() {
         </div>
       </main>
       <Footer />
-    </TweetProvider>
+    </AppProvider>
   );
 }

@@ -2,23 +2,27 @@ import Image from "next/image";
 import { useTweet } from "@/hooks/useTweet";
 
 import { nFormatter } from "@/utils";
+import { tweetBodyDefaults } from "@/utils/constants";
 
-export type TweetBodyProps = {
+export interface TweetBodyProps {
   body?: string;
   image?: string;
   viewsCount?: number;
   publishTime?: string;
   publishDate?: string;
-};
+}
 
 const TweetBody = () => {
-  const { state } = useTweet();
+  const { tweet } = useTweet();
   const { body, image, viewsCount, publishTime, publishDate }: TweetBodyProps =
-    state;
+    tweet;
+
   const formattedViewsCount = nFormatter(viewsCount!);
   return (
     <div className="flex flex-col gap-2">
-      <div className="text-[23px]">{body ? body : "Your fake tweet here!"}</div>
+      <div dir="auto" className="text-[23px]">
+        {body ? body : tweetBodyDefaults.body}
+      </div>
       <div>
         {image && (
           <Image
@@ -31,17 +35,21 @@ const TweetBody = () => {
           />
         )}
       </div>
-      <div className="flex items-center gap-1 pb-4 pt-2 text-sm font-normal text-gray-500">
-        <span>
-          {publishTime ? publishTime : "12:00 PM"}
-          {publishDate ? ` · ${publishDate}` : " · Jun 1, 2021"}
+      <div className="flex items-center gap-1 pb-4 pt-2">
+        <span className="text-sm font-normal text-gray-500">
+          {publishTime ? publishTime : tweetBodyDefaults.publishTime}
+          {publishDate
+            ? ` · ${publishDate}`
+            : ` · ${tweetBodyDefaults.publishDate}`}
         </span>
         {!!viewsCount && (
           <>
-            <span>·</span>
+            <span className="text-sm font-normal text-gray-400">·</span>
             <span>
-              <b className="font-bold text-black">{formattedViewsCount}</b>
-              {" Views"}
+              <b className="font-semibold">{formattedViewsCount}</b>
+              <span className="text-sm font-normal text-gray-500">
+                {` View${viewsCount > 1 ? "s" : ""}`}
+              </span>
             </span>
           </>
         )}
