@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+input::file-selector-button {
+  padding: 0.75rem 20px;
+  color: white;
+  background-color: #1d9bf0;
+  border: none;
+}
+
+input::file-selector-button:hover {
+  cursor: pointer;
+  background-color: #148ad8;
+}
+
+/* input::file-selector-button,
+input[type="file"] {
+  display: none;
+} */
+
+textarea {
+  resize: none;
+}

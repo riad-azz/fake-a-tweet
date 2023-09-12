@@ -14,7 +14,7 @@ const TweetBody = (props: TweetBodyProps) => {
   const formattedViewsCount = nFormatter(viewsCount!);
   return (
     <div className="flex flex-col gap-2">
-      <div className="text-[23px]">{body ?? "Your fake tweet here!"}</div>
+      <div className="text-[23px]">{body ? body : "Your fake tweet here!"}</div>
       <div>
         {image && (
           <Image
@@ -27,9 +27,11 @@ const TweetBody = (props: TweetBodyProps) => {
           />
         )}
       </div>
-      <div className="flex items-center gap-1 py-4 text-sm font-normal text-gray-500">
+      <div className="flex items-center gap-1 pb-4 pt-2 text-sm font-normal text-gray-500">
         <span>
-          {publishedTime ?? "12:00 PM"} · {publishedDate ?? "Jun 1, 2021"}
+          {publishedTime ? publishedTime : "12:00 PM"}
+          {" · "}
+          {publishedDate ? publishedDate : "Jun 1, 2021"}
         </span>
         {!!viewsCount && (
           <>

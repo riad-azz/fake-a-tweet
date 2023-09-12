@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import { VerifiedIcon } from "../Icons";
 export type UserInfoProps = {
   name?: string;
   username?: string;
@@ -26,20 +26,12 @@ const UserInfo = (props: UserInfoProps) => {
       <div className="flex flex-col">
         <div className="flex items-center gap-1">
           <span className="text-[15px] font-bold text-gray-900">
-            {name ?? "Name"}
+            {name ? name : "Name"}
           </span>
-          {verified && (
-            <Image
-              src={"/verified.svg"}
-              width={20}
-              height={20}
-              alt="verified"
-              className="text-blue-600"
-            />
-          )}
+          {verified && <VerifiedIcon />}
         </div>
         <span className="text-sm font-medium text-gray-500">
-          {username ?? "@Username"}
+          {username ? username : "@Username"}
         </span>
       </div>
     </div>
