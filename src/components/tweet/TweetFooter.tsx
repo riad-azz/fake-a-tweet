@@ -1,3 +1,4 @@
+import { useTweet } from "@/hooks/useTweet";
 import TweetStat from "@/components/parts/TweetStat";
 import {
   CommentIcon,
@@ -14,8 +15,14 @@ export type TweetFooterProps = {
   bookmarksCount?: number;
 };
 
-const TweetFooter = (props: TweetFooterProps) => {
-  const { repostsCount, quotesCount, likesCount, bookmarksCount } = props;
+const TweetFooter = () => {
+  const { state } = useTweet();
+  const {
+    repostsCount,
+    quotesCount,
+    likesCount,
+    bookmarksCount,
+  }: TweetFooterProps = state;
   const showStats =
     !!repostsCount || !!quotesCount || !!likesCount || !!bookmarksCount;
   return (

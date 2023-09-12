@@ -1,4 +1,5 @@
-import React from "react";
+import { useTweet } from "@/hooks/useTweet";
+
 import UserInfo from "@/components/parts/UserInfo";
 import DotsMenu from "@/components/parts/DotsMenu";
 
@@ -9,9 +10,9 @@ export type TweetHeaderProps = {
   verified?: boolean;
 };
 
-const TweetHeader = (props: TweetHeaderProps) => {
-  const { avatar, name, username, verified } = props;
-
+const TweetHeader = () => {
+  const { state } = useTweet();
+  const { avatar, name, username, verified }: TweetHeaderProps = state;
   return (
     <div className="mb-4 flex justify-between">
       <UserInfo

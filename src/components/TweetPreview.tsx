@@ -1,19 +1,14 @@
 "use client";
-
 import { useScreenshot } from "@/hooks/useScreenshot";
 
-import { TweetProps } from "@/types";
 import TweetBody from "@/components/tweet/TweetBody";
 import TweetHeader from "@/components/tweet/TweetHeader";
 import TweetFooter from "@/components/tweet/TweetFooter";
+
 import { cn } from "@/utils";
 
-const TweetPreview = (tweet: TweetProps) => {
+const TweetPreview = () => {
   const { componentRef, captureScreenshot } = useScreenshot();
-  const { avatar, name, username, verified } = tweet;
-  const { body, image, publishedTime, publishedDate } = tweet;
-  const { viewsCount, repostsCount, quotesCount, likesCount, bookmarksCount } =
-    tweet;
   return (
     <div className="order-1 mx-auto w-full lg:order-2">
       <div
@@ -28,27 +23,11 @@ const TweetPreview = (tweet: TweetProps) => {
           className="w-full border border-[#c4cfd6] bg-white p-4"
         >
           {/* Tweet header */}
-          <TweetHeader
-            avatar={avatar}
-            name={name}
-            username={username}
-            verified={verified}
-          />
+          <TweetHeader />
           {/* Tweet body */}
-          <TweetBody
-            body={body}
-            image={image}
-            viewsCount={viewsCount}
-            publishedTime={publishedTime}
-            publishedDate={publishedDate}
-          />
+          <TweetBody />
           {/* Tweet Footer */}
-          <TweetFooter
-            repostsCount={repostsCount}
-            quotesCount={quotesCount}
-            likesCount={likesCount}
-            bookmarksCount={bookmarksCount}
-          />
+          <TweetFooter />
         </div>
         <button
           onClick={captureScreenshot}

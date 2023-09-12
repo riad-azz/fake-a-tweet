@@ -1,29 +1,16 @@
-import { TweetProps } from "@/types";
-import TweetForm from "@/components/TweetForm";
-import TweetPreview from "@/components/TweetPreview";
+"use client";
+
 import { cn } from "@/utils";
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
-const initialTweet: TweetProps = {
-  avatar: "",
-  name: "",
-  username: "",
-  verified: true,
-  body: "",
-  image: "",
-  publishedTime: "",
-  publishedDate: "",
-  viewsCount: 0,
-  repostsCount: 0,
-  quotesCount: 10,
-  likesCount: 10,
-  bookmarksCount: 0,
-};
+import TweetForm from "@/components/TweetForm";
+import TweetPreview from "@/components/TweetPreview";
+import TweetProvider from "@/components/TweetProvider";
 
 export default function Home() {
   return (
-    <>
+    <TweetProvider>
       <Header />
       <main className="flex flex-col">
         <div
@@ -33,10 +20,10 @@ export default function Home() {
           )}
         >
           <TweetForm />
-          <TweetPreview {...initialTweet} />
+          <TweetPreview />
         </div>
       </main>
       <Footer />
-    </>
+    </TweetProvider>
   );
 }

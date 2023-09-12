@@ -1,17 +1,20 @@
-import React from "react";
-import InputField from "./ui/InputField";
-import TextareaField from "./ui/TextareaField";
+import { useTweet } from "@/hooks/useTweet";
+
+import InputField from "@/components/ui/InputField";
+import TextareaField from "@/components/ui/TextareaField";
+
 import { cn } from "@/utils";
 
 const TweetForm = () => {
+  const { state, updateTweet, resetTweet } = useTweet();
   return (
-    <form
+    <div
       className={cn(
         "flex w-full max-w-xl flex-col rounded border border-gray-100 bg-white p-4 shadow-md",
         "order-2 lg:order-1 lg:max-w-sm"
       )}
     >
-      <div className="flex flex-col gap-2">
+      <div className="mb-2 flex flex-col gap-2">
         {/* Header Section */}
         <InputField
           id="avatar"
@@ -31,6 +34,12 @@ const TweetForm = () => {
           label="Name"
           placeholder="Name"
           tooltip="0/50 characters"
+          value={state.name}
+          onChange={(e) =>
+            updateTweet({
+              name: e.target.value,
+            })
+          }
         />
         <InputField
           type="text"
@@ -53,7 +62,7 @@ const TweetForm = () => {
         </label>
       </div>
       {/* Body Section */}
-      <div className="mt-4 flex flex-col gap-4">
+      <div className="flex flex-col gap-4">
         <TextareaField
           label="What's happening?"
           placeholder="Your fake tweet here!"
@@ -120,8 +129,20 @@ const TweetForm = () => {
           min={0}
         />
       </div>
+      <div className="mt-4 w-full">
+        <button
+          type="button"
+          className={cn(
+            "w-full rounded-lg bg-[#1d9bf0] px-4 py-2 text-center text-white",
+            "hover:cursor-pointer hover:bg-[#148ad8]"
+          )}
+          onClick={resetTweet}
+        >
+          Reset All
+        </button>
+      </div>
       <div />
-    </form>
+    </div>
   );
 };
 

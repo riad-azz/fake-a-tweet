@@ -31,7 +31,7 @@ const UserInfo = (props: UserInfoProps) => {
           {verified && <VerifiedIcon />}
         </div>
         <span className="text-sm font-medium text-gray-500">
-          {username ? username : "@Username"}
+          {username ? `@${username}` : "@Username"}
         </span>
       </div>
     </div>
