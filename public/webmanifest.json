@@ -1,0 +1,32 @@
+{
+  "name": "Fake A Tweet",
+  "short_name": "Fake A Tweet",
+  "icons": [
+    {
+      "src": "/images/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "lang": "en-us",
+  "dir": "ltr",
+  "start_url": "/",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "landscape-primary",
+  "description": "Create and download fake tweets with custom text and usernames. Generate fictitious Twitter posts for memes, educational content, or social media fun with the Fake a Tweet web application.",
+  "categories": [
+    "Social Media Tools",
+    "Web Development",
+    "Meme Generators",
+    "Online Mockup Generators",
+    "User-Generated Content",
+    "Social Media Marketing"
+  ]
+}

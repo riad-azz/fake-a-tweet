@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* --- INPUTS STYLE --- */
 input::file-selector-button {
   padding: 0.75rem 20px;
   color: white;
@@ -14,11 +15,42 @@ input::file-selector-button:hover {
   background-color: #148ad8;
 }
 
-/* input::file-selector-button,
-input[type="file"] {
-  display: none;
-} */
-
 textarea {
   resize: none;
+}
+
+/* --- DISCLAIMER STYLE --- */
+
+/* Tooltip container styles */
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Danger sign styles */
+.danger-sign {
+  cursor: pointer;
+  color: dimgray;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+/* Tooltip styles (initially hidden) */
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  background-color: white;
+  border: 1px solid gray;
+  font-size: 12px;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  width: 300px;
+  bottom: 125%;
+  z-index: 1;
+}
+
+/* Show tooltip on hover */
+.tooltip-container:hover .tooltip {
+  visibility: visible;
 }
