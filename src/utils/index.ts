@@ -1,5 +1,8 @@
+import { NextRequest } from "next/server";
+
 import { twMerge } from "tailwind-merge";
 import { type ClassValue, clsx } from "clsx";
+
 
 export const cn = (...inputs: ClassValue[]) => {
   return twMerge(clsx(inputs));
@@ -26,4 +29,18 @@ export const nFormatter = (num?: number, digits: number = 1) => {
   return item
     ? (num / item.value).toFixed(digits).replace(rx, "$1") + item.symbol
     : "0";
+};
+
+
+export const getClientIp = (request: NextRequest) => {
+  let ip: string | null;
+
+  ip = request.ip ?? request.headers.get("x-real-ip");
+  const forwardedFor = request.headers.get("x-forwarded-for");
+
+  if (!ip && forwardedFor) {
+    ip = forwardedFor.split(",").at(0) ?? null;
+  }
+
+  return ip;
 };
