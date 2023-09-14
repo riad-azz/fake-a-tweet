@@ -8,7 +8,7 @@ import { cn } from "@/utils";
 import { tweetHeaderDefaults, tweetBodyDefaults } from "@/utils/constants";
 
 const TweetForm = () => {
-  const { tweet, updateTweet, resetTweet } = useTweet();
+  const { tweet, updateTweet } = useTweet();
 
   const handleImageChange = (
     field: string,

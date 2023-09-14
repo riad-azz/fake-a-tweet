@@ -1,19 +1,17 @@
 import { useContext } from "react";
-import { AppContext } from "@/features/contexts";
-import { TweetState, TweetTheme, Tweet } from "@/types";
+import { TweetContext } from "@/features/contexts";
+import { TweetTheme, Tweet } from "@/types";
 
 export const useTweet = () => {
-  const context = useContext(AppContext);
+  const context = useContext(TweetContext);
 
   if (context === undefined) {
-    throw new Error("useTweet must be used within a AppProvider");
+    throw new Error("useTweet must be used within AppProvider");
   }
-  const {
-    tweet: {
-      state: { tweet, theme },
-      dispatch,
-    },
-  } = context;
+
+  const { state, dispatch } = context;
+
+  const { tweet, theme } = state;
 
   const updateTweet = (newTweet: Partial<Tweet>) => {
     dispatch({ type: "UPDATE_TWEET", payload: newTweet });

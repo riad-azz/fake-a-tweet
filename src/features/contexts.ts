@@ -1,9 +1,10 @@
 import { TweetAction, TweetState } from "@/types";
 import { createContext, Dispatch } from "react";
 
-export const AppContext = createContext<
+export const TweetContext = createContext<
   | {
-      tweet: { state: TweetState; dispatch: Dispatch<TweetAction> };
+      state: TweetState;
+      dispatch: Dispatch<TweetAction>;
     }
   | undefined
 >(undefined);

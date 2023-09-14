@@ -29,12 +29,12 @@ const TweetHeader = () => {
         </div>
         <div className="flex flex-col">
           <div className="flex items-center gap-1">
-            <span className="text-[15px] font-bold">
+            <span className="text-sm font-bold">
               {name ? name : tweetHeaderDefaults.name}
             </span>
             {verified && <VerifiedIcon />}
           </div>
-          <span className="text-sm font-medium text-gray-500">
+          <span className="text-sm font-normal text-gray-500">
             @{username ? `${username}` : tweetHeaderDefaults.username}
           </span>
         </div>

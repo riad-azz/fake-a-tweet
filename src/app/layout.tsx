@@ -1,11 +1,13 @@
 import "@/styles/globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter as MainFont } from "next/font/google";
 
 import { mainMetadata } from "@/configs/seo";
 import { cn } from "@/utils/index";
 
-const inter = Inter({ subsets: ["latin"] });
+const mainFont = MainFont({
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = mainMetadata;
 
@@ -16,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn(inter.className, "bg-stone-50 text-slate-800")}>
+      <body className={cn(mainFont.className, "bg-stone-50 text-slate-800")}>
         {children}
       </body>
     </html>
