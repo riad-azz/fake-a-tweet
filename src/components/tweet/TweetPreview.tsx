@@ -1,4 +1,5 @@
 "use client";
+
 import { ChangeEvent } from "react";
 import { useTweet } from "@/hooks/useTweet";
 import { useScreenshot } from "@/hooks/useScreenshot";
@@ -7,12 +8,12 @@ import RadioInput from "@/components/ui/RadioInput";
 import TweetBody from "@/components/tweet/TweetBody";
 import TweetHeader from "@/components/tweet/TweetHeader";
 import TweetFooter from "@/components/tweet/TweetFooter";
+import DownloadButton from "@/components/ui/DownloadButton";
+import Disclaimer from "@/components/ui/Disclaimer";
 
 import { TweetTheme } from "@/types";
 import { cn } from "@/utils";
 import { twitterThemeOptions, twitterThemes } from "@/utils/constants";
-import DownloadButton from "./ui/DownloadButton";
-import Disclaimer from "./ui/Disclaimer";
 
 const TweetPreview = () => {
   const { theme, updateTheme, resetTweet } = useTweet();

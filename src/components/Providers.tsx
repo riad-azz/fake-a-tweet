@@ -1,3 +1,5 @@
+"use client";
+
 import { useReducer, ReactNode } from "react";
 import { TweetContext } from "@/features/contexts";
 import { tweetReducer, initTweetState } from "@/features/tweetReducer";

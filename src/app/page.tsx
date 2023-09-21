@@ -1,9 +1,5 @@
-"use client";
-
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import TweetForm from "@/components/TweetForm";
-import TweetPreview from "@/components/TweetPreview";
+import TweetForm from "@/components/tweet/TweetForm";
+import TweetPreview from "@/components/tweet/TweetPreview";
 import AppProvider from "@/components/Providers";
 
 import { cn } from "@/utils";
@@ -11,7 +7,6 @@ import { cn } from "@/utils";
 export default function Home() {
   return (
     <AppProvider>
-      <Header />
       <main className="flex flex-col">
         <div
           className={cn(
@@ -23,7 +18,6 @@ export default function Home() {
           <TweetPreview />
         </div>
       </main>
-      <Footer />
     </AppProvider>
   );
 }

@@ -5,6 +5,9 @@ import { Inter as MainFont } from "next/font/google";
 import { mainMetadata } from "@/configs/seo";
 import { cn } from "@/utils/index";
 
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
 const mainFont = MainFont({
   subsets: ["latin"],
 });
@@ -19,7 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(mainFont.className, "bg-stone-50 text-slate-800")}>
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
