@@ -1,16 +1,9 @@
-"use client";
+import { ReactNode } from "react";
 
-import { useReducer, ReactNode } from "react";
-import { TweetContext } from "@/features/contexts";
-import { tweetReducer, initTweetState } from "@/features/tweetReducer";
+import TweetProvider from "@/components/tweet/TweetProvider";
 
 const AppProvider = ({ children }: { children: ReactNode }) => {
-  const [state, dispatch] = useReducer(tweetReducer, initTweetState);
-  return (
-    <TweetContext.Provider value={{ state, dispatch }}>
-      {children}
-    </TweetContext.Provider>
-  );
+  return <TweetProvider>{children}</TweetProvider>;
 };
 
 export default AppProvider;

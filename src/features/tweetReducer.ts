@@ -1,4 +1,4 @@
-import { Tweet, TweetTheme, TweetState, TweetAction } from "@/types";
+import { Tweet, TweetTheme, TweetState, TweetAction } from "@/types/tweet";
 
 export const initTweet: Tweet = {
   avatar: "",

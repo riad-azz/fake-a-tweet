@@ -1,5 +1,5 @@
 import { useTweet } from "@/hooks/useTweet";
-import TweetStat from "@/components/tweet/parts/TweetStat";
+
 import {
   CommentIcon,
   RepostIcon,
@@ -7,6 +7,8 @@ import {
   BookmarkIcon,
   ShareIcon,
 } from "@/components/Icons";
+import TweetStat from "@/components/tweet/ui/TweetStat";
+
 import { cn } from "@/utils";
 
 export interface TweetFooterProps {

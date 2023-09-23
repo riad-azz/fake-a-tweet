@@ -1,4 +1,4 @@
-import { TweetAction, TweetState } from "@/types";
+import { TweetAction, TweetState } from "@/types/tweet";
 import { createContext, Dispatch } from "react";
 
 export const TweetContext = createContext<

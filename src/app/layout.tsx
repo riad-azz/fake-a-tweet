@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Inter as MainFont } from "next/font/google";
 
-import { mainMetadata } from "@/configs/seo";
+import { rootMetadata } from "@/configs/seo";
 import { cn } from "@/utils/index";
 
 import Navbar from "@/components/Navbar";
@@ -12,7 +12,7 @@ const mainFont = MainFont({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = mainMetadata;
+export const metadata: Metadata = rootMetadata;
 
 export default function RootLayout({
   children,

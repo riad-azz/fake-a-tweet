@@ -1,12 +1,14 @@
 import { siteConfig } from "@/configs/site";
 import { Metadata } from "next";
 
-export const mainMetadata: Metadata = {
+export const rootMetadata: Metadata = {
   metadataBase: new URL("https://fake-a-tweet.vercel.app"),
   title: siteConfig.name,
   description: siteConfig.description,
   keywords: [
     "fake tweets",
+    "fake a tweet",
+    "create fake tweet",
     "tweet generator",
     "Twitter post creator",
     "social media memes",
@@ -14,7 +16,6 @@ export const mainMetadata: Metadata = {
     "fictitious tweets",
     "Twitter parody",
     "web application",
-    "Next.js",
     "meme generator",
   ],
   authors: [

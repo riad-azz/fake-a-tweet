@@ -1,6 +1,6 @@
 import { CgDanger } from "react-icons/cg";
 
-const Disclaimer = () => {
+const TweetDisclaimer = () => {
   return (
     <div className="tooltip-container">
       <span className="danger-sign">
@@ -21,4 +21,4 @@ const Disclaimer = () => {
   );
 };
 
-export default Disclaimer;
+export default TweetDisclaimer;

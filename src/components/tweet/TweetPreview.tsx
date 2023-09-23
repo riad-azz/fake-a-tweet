@@ -5,13 +5,13 @@ import { useTweet } from "@/hooks/useTweet";
 import { useScreenshot } from "@/hooks/useScreenshot";
 
 import RadioInput from "@/components/ui/RadioInput";
-import TweetBody from "@/components/tweet/TweetBody";
-import TweetHeader from "@/components/tweet/TweetHeader";
-import TweetFooter from "@/components/tweet/TweetFooter";
+import TweetBody from "./parts/TweetBody";
+import TweetHeader from "./parts/TweetHeader";
+import TweetFooter from "./parts/TweetFooter";
 import DownloadButton from "@/components/ui/DownloadButton";
-import Disclaimer from "@/components/ui/Disclaimer";
+import TweetDisclaimer from "@/components/tweet/ui/TweetDisclaimer";
 
-import { TweetTheme } from "@/types";
+import { TweetTheme } from "@/types/tweet";
 import { cn } from "@/utils";
 import { twitterThemeOptions, twitterThemes } from "@/utils/constants";
 
@@ -60,7 +60,8 @@ const TweetPreview = () => {
           <TweetFooter />
         </div>
         <div className="flex w-full items-center justify-between gap-4 px-2 lg:px-0">
-          <Disclaimer />
+          {/* Tweet use disclaimer */}
+          <TweetDisclaimer />
           <div className="flex w-full items-center justify-end gap-4">
             <button
               type="button"
