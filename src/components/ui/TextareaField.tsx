@@ -1,7 +1,7 @@
-import { InputHTMLAttributes } from "react";
+import React from "react";
 import { cn } from "@/utils";
 
-interface TextareaFieldProps extends InputHTMLAttributes<HTMLTextAreaElement> {
+interface TextareaFieldProps extends React.ComponentProps<"textarea"> {
   label?: string;
   tooltip?: string;
   containerClass?: string;

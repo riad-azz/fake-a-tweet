@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import { TweetContext } from "@/features/contexts";
+
 import { TweetTheme, Tweet } from "@/types/tweet";
+import { TweetContext } from "@/features/tweet/context";
 
 export const useTweet = () => {
   const context = useContext(TweetContext);

@@ -1,8 +1,10 @@
 import Image from "next/image";
+
 import { useTweet } from "@/hooks/useTweet";
 
 import { BsThreeDots } from "react-icons/bs";
 import { VerifiedIcon } from "@/components/Icons";
+
 import { tweetHeaderDefaults } from "@/utils/constants";
 
 export interface TweetHeaderProps {

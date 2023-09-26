@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent } from "react";
+import React from "react";
 import { useTweet } from "@/hooks/useTweet";
 import { useScreenshot } from "@/hooks/useScreenshot";
 
@@ -22,7 +22,7 @@ const TweetPreview = () => {
   const { componentRef, isCapturing, captureScreenshot } =
     useScreenshot(currentTheme);
 
-  const handleThemeChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleThemeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newTheme = event.target.value as TweetTheme;
     updateTheme(newTheme);
   };

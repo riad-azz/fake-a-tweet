@@ -1,4 +1,5 @@
-import { ChangeEvent } from "react";
+import React from "react";
+
 import { cn } from "@/utils";
 
 export interface RadioOption {
@@ -10,7 +11,7 @@ export interface RadioOption {
 export interface RadioInputProps {
   selected: string;
   options: RadioOption[];
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   className?: string;
 }
 

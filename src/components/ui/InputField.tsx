@@ -1,7 +1,8 @@
-import { InputHTMLAttributes } from "react";
+import React from "react";
+
 import { cn } from "@/utils";
 
-interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
+interface InputFieldProps extends React.ComponentProps<"input"> {
   label?: string;
   tooltip?: string;
   containerClass?: string;

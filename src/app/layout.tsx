@@ -1,14 +1,15 @@
 import "@/styles/globals.css";
 import type { Metadata } from "next";
-import { Inter as MainFont } from "next/font/google";
-
-import { rootMetadata } from "@/configs/seo";
-import { cn } from "@/utils/index";
+import { Inter as RootFont } from "next/font/google";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Providers from "@/components/Providers";
 
-const mainFont = MainFont({
+import { cn } from "@/utils/index";
+import { rootMetadata } from "@/configs/seo";
+
+const rootFont = RootFont({
   subsets: ["latin"],
 });
 
@@ -21,10 +22,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn(mainFont.className, "bg-stone-50 text-slate-800")}>
-        <Navbar />
-        {children}
-        <Footer />
+      <body className={cn(rootFont.className, "bg-stone-50 text-slate-800")}>
+        <Providers>
+          <Navbar />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

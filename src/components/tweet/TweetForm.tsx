@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent } from "react";
+import React from "react";
 import { useTweet } from "@/hooks/useTweet";
 
 import InputField from "@/components/ui/InputField";
@@ -14,7 +14,7 @@ const TweetForm = () => {
 
   const handleImageChange = (
     field: string,
-    e: ChangeEvent<HTMLInputElement>
+    e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const file = e.target.files?.[0];
     if (file && file.type.startsWith("image/")) {

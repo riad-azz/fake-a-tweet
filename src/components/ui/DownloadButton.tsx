@@ -1,11 +1,11 @@
-import { ButtonHTMLAttributes } from "react";
+import React from "react";
+
 import { ImSpinner2 } from "react-icons/im";
 import { BiDownload } from "react-icons/bi";
 
 import { cn } from "@/utils";
 
-export interface DownloadButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface DownloadButtonProps extends React.ComponentProps<"button"> {
   label: string;
   loadingLabel: string;
   isLoading: boolean;

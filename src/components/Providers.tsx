@@ -1,9 +1,9 @@
-import { ReactNode } from "react";
+import React from "react";
 
 import TweetProvider from "@/components/tweet/TweetProvider";
 
-const AppProvider = ({ children }: { children: ReactNode }) => {
+const Providers = ({ children }: { children: React.ReactNode }) => {
   return <TweetProvider>{children}</TweetProvider>;
 };
 
-export default AppProvider;
+export default Providers;
