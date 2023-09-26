@@ -4,12 +4,13 @@ import { ChangeEvent } from "react";
 import { useTweet } from "@/hooks/useTweet";
 import { useScreenshot } from "@/hooks/useScreenshot";
 
-import RadioInput from "@/components/ui/RadioInput";
 import TweetBody from "./parts/TweetBody";
 import TweetHeader from "./parts/TweetHeader";
 import TweetFooter from "./parts/TweetFooter";
+import TweetDisclaimer from "./ui/TweetDisclaimer";
+
+import RadioInput from "@/components/ui/RadioInput";
 import DownloadButton from "@/components/ui/DownloadButton";
-import TweetDisclaimer from "@/components/tweet/ui/TweetDisclaimer";
 
 import { TweetTheme } from "@/types/tweet";
 import { cn } from "@/utils";
