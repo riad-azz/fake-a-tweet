@@ -81,7 +81,7 @@ const TweetForm = () => {
         <InputField
           type="text"
           label="Username"
-          placeholder={"@" + tweetHeaderDefaults.username}
+          placeholder={tweetHeaderDefaults.username}
           tooltip={`${
             tweet.username ? tweet.username.length : 0
           }/15 characters`}

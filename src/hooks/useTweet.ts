@@ -7,7 +7,7 @@ export const useTweet = () => {
   const context = useContext(TweetContext);
 
   if (context === undefined) {
-    throw new Error("useTweet must be used within AppProvider");
+    throw new Error("useTweet must be used within TweetProvider");
   }
 
   const { state, dispatch } = context;
@@ -23,7 +23,7 @@ export const useTweet = () => {
   };
 
   const resetTweet = () => {
-    dispatch({ type: "RESET_TWEET", payload: null });
+    dispatch({ type: "RESET_TWEET" });
   };
 
   return { tweet, theme, updateTweet, updateTheme, resetTweet };

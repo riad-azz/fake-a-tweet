@@ -24,4 +24,4 @@ export type TweetState = {
 export type TweetAction =
   | { type: "UPDATE_TWEET"; payload: { [field: string]: any } }
   | { type: "UPDATE_TWEET_THEME"; payload: TweetTheme }
-  | { type: "RESET_TWEET"; payload: null };
+  | { type: "RESET_TWEET" };
