@@ -10,9 +10,10 @@ export const useTweet = () => {
     throw new Error("useTweet must be used within TweetProvider");
   }
 
-  const { state, dispatch } = context;
-
-  const { tweet, theme } = state;
+  const {
+    state: { tweet, theme },
+    dispatch,
+  } = context;
 
   const updateTweet = (newTweet: Partial<Tweet>) => {
     dispatch({ type: "UPDATE_TWEET", payload: newTweet });

@@ -14,11 +14,12 @@ import DownloadButton from "@/components/ui/DownloadButton";
 
 import { TweetTheme } from "@/types/tweet";
 import { cn } from "@/utils";
-import { twitterThemeOptions, twitterThemes } from "@/utils/constants";
+import { twitterThemes, twitterThemeOptions } from "@/utils/constants";
 
 const TweetPreview = () => {
   const { theme, updateTheme, resetTweet } = useTweet();
   const currentTheme = twitterThemes[theme];
+
   const { componentRef, isCapturing, captureScreenshot } =
     useScreenshot(currentTheme);
 

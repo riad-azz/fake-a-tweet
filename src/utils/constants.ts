@@ -1,3 +1,5 @@
+import { TweetTheme } from "@/types/tweet";
+
 export const tweetHeaderDefaults = {
   avatar: "/images/default-avatar.png",
   name: "Name",
@@ -10,26 +12,18 @@ export const tweetBodyDefaults = {
   publishDate: "Jan 1, 2023",
 };
 
-export const twitterThemes = {
+export const twitterThemes: Record<TweetTheme, string> = {
   light: "text-black",
   dark: "text-white",
   dim: "#15202b",
 };
 
-export const twitterThemeOptions = [
-  {
-    id: "0",
-    value: "light",
-    label: "Light",
-  },
-  {
-    id: "1",
-    value: "dark",
-    label: "Dark",
-  },
-  {
-    id: "2",
-    value: "dim",
-    label: "Dim",
-  },
-];
+export const twitterThemeOptions = Object.keys(twitterThemes).map(
+  (theme, index) => {
+    return {
+      id: index,
+      label: theme.charAt(0).toUpperCase() + theme.slice(1),
+      value: theme,
+    };
+  }
+);
